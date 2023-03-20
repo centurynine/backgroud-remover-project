@@ -66,31 +66,6 @@ app.post('/uploadFile', async (req, res) => {
     res.sendStatus(200);
 });
 
-app.post('/addUser', async (req, res) => {
-  let data = req.body;
-  Encrypted_password = CryptoJS.MD5(data.Password).toString()
-  data.Password = Encrypted_password
-  var url = req.url;
-  var jsonData = await JSON.parse(fs.readFileSync('./NodeJS-1/data.json'));
-  if (data.FirstName != '' || data.LastName != '' || data.Phone != '' || data.Email != '' || data.Password != '' || data.Faculty != '' || data.Gender != '' || data.Birthday != '') {
-    for (let i=0;i < jsonData.length; i++) { 
-      if (jsonData[i].Email == data.Email || (jsonData[i].FirstName == data.FirstName && jsonData[i].LastName == data.LastName)) {
-        console.log('เพิ่มข้อมูลไม่สำเร็จ');
-        response(res, 400, 'เพิ่มข้อมูลไม่สำเร็จ');
-        return;
-      }
-    }
-    console.log(jsonData);
-    jsonData.push(data);
-    jsonID = jsonData.length;
-    jsonData[jsonID-1].id = jsonID;
-    fs.writeFileSync('./NodeJS-1/data.json', JSON.stringify(jsonData, null, "  "));
-    response(res, 200, 'เพิ่มข้อมูลสำเร็จ');
-    console.log('เพิ่มข้อมูลสำเร็จ');
-  } else {
-    response(res, 400, 'เพิ่มข้อมูลไม่สำเร็จ');
-    console.log('เพิ่มข้อมูลไม่สำเร็จ');
-  }}) 
 
 app.get('/upload', (req, res)=> {
   res.render('upload')
