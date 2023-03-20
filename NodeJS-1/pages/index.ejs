@@ -34,12 +34,15 @@
     <h5 class="text-center p-5">ประวัติการอัพโหลด</h5>
     <div class="container h-100">
       <div class="row align-items-center h-100">
-        <% ListUsers.forEach(function(user){ %>
+        <% ListImages.forEach(function(image){ %>
         <div class="col-6 mx-auto slide-in" id="slider">
           <div class="jumbotron text-center">
-            <h3><%= user.FirstName %> <%= user.LastName %></h3>
-            ID : <%= user.id %>
-            <p><a class="btn btn-primary btn-lg mt-2" href="/user/<%= user.id %>" role="button">View Profile</a></p>
+            <h3><%= image.imageInput %></h3>
+            ID : <%= image.id %>
+            <div>
+              <img src="images_input/<%= image.imageInput %>" alt="">
+            </div>
+            <p><a class="btn btn-primary btn-lg mt-2" href="" role="button">View Profile</a></p>
         </div>
         </div>
         <% }) %>

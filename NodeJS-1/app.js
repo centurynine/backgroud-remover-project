@@ -17,7 +17,6 @@ app.use(
 );
 
  
-
 app.post('/uploadFile', async (req, res) => {
   
  
@@ -33,14 +32,14 @@ app.post('/uploadFile', async (req, res) => {
     if (!image) return res.sendStatus(400);
   
     // Move the uploaded image to our upload folder
-    image.mv(__dirname + '/images_input/' + image.name);
+    image.mv(__dirname + '/pages/images_input/' + image.name);
 
     let options = {
       mode: 'text',
       pythonOptions: ['-u'], 
         scriptPath: '',  
        
-      args: [__dirname + '/images_input/' + image.name, __dirname + '/images_output/' + image.name]  
+      args: [__dirname + '/pages/images_input/' + image.name, __dirname + '/pages/images_output/' + image.name]  
 
   };
    
@@ -75,7 +74,7 @@ app.get('', (req, res)=> {
   fs.readFile('./NodeJS-1/data.json', (err, data) => {const listObj= JSON.parse(data);
     if(err) {res.status(400).send('Error List not found');
   } else {
-    res.render('index', {ListUsers: listObj});
+    res.render('index', {ListImages: listObj});
   }
 });
 });
@@ -84,7 +83,7 @@ app.get('/home', (req, res)=> {
   fs.readFile('./NodeJS-1/data.json', (err, data) => {const listObj= JSON.parse(data);
     if(err) {res.status(400).send('Error List not found');
   } else {
-    res.render('index', {ListUsers: listObj});
+    res.render('index', {ListImages: listObj});
   }
 });
 });
@@ -95,7 +94,7 @@ app.get('/search', (req, res)=> {
   fs.readFile('./NodeJS-1/data.json', (err, data) => {const listObj= JSON.parse(data);
     if(err) {res.status(400).send('Error List not found');
   } else {
-    res.render('index', {ListUsers: listObj});
+    res.render('index', {ListImages: listObj});
   }
 });
 });
@@ -116,7 +115,7 @@ app.get('/search/:variable', async (req, res) => {
   } else {
     for (let i = 0; i < listObj.length; i++) { 
       if (listObj[i].FirstName == variable) {
-        res.render('search', {ListUser: listObj[i]});
+        res.render('search', {ListImages: listObj[i]});
       }
       if(i == listObj.length-1) {
         res.render('../pages/alertpages/alert_status.ejs',
@@ -138,7 +137,7 @@ app.get('/user/:id', async (req, res) => {
   } else {
     for (let i = 0; i < listObj.length; i++) { 
       if (listObj[i].id == id) {
-        res.render('user', {ListUser: listObj[i]});
+        res.render('image', {ListImages: listObj[i]});
       }
     }
   }
