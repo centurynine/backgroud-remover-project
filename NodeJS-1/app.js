@@ -98,14 +98,14 @@ app.get('/image/:id', async (req, res) => {
 });
 })
 
-app.get('/search', (req, res)=> {
-  fs.readFile('./NodeJS-1/data.json', (err, data) => {const listObj= JSON.parse(data);
-    if(err) {res.status(400).send('Error List not found');
-  } else {
-    res.render('index', {ListImages: listObj});
-  }
-});
-});
+// app.get('/search', (req, res)=> {
+//   fs.readFile('./NodeJS-1/data.json', (err, data) => {const listObj= JSON.parse(data);
+//     if(err) {res.status(400).send('Error List not found');
+//   } else {
+//     res.render('index', {ListImages: listObj});
+//   }
+// });
+// });
 var server = app.listen(port, function () {
   var host = server.address().address
   var port = server.address().port
@@ -125,10 +125,9 @@ app.get('/search/:variable', async (req, res) => {
       if (listObj[i].imageInput == variable) {
         res.render('search', {ListImages: listObj[i]});
       }
-      if(i == listObj.length-1) {
+      else if(i == listObj.length-1) {
         res.render('../pages/alertpages/alert_status.ejs',
          {status: 'searchfail'});
-
       }
     }
   }
