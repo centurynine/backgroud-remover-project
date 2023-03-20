@@ -19,9 +19,13 @@ app.use(
  
 
 app.post('/uploadfile', (req, res) => {
+  res.setHeader('content-type', 'text/html; charset=utf-8');
     // Get the file that was set to our field named "image"
+     
     const { image } = req.files;
 
+  
+ 
     // If no image submitted, exit
     if (!image) return res.sendStatus(400);
   
@@ -33,11 +37,10 @@ app.post('/uploadfile', (req, res) => {
       pythonOptions: ['-u'], 
         scriptPath: '',  
        
-      args: [__dirname + '/images_input/' + image.name]  
+      args: [__dirname + '/images_input/' + image.name, __dirname + '/images_output/' + image.name]  
 
   };
    
-
   PythonShell.run('NodeJS-1/main.py', options, function (err, result){
         if (err) throw err;
         // result is an array consisting of messages collected
@@ -71,9 +74,7 @@ app.get('/home', (req, res)=> {
 });
 });
 
-app.get('/register', (req, res)=> {
-  res.render('register')
-})
+ 
 
 app.get('/search', (req, res)=> {
   fs.readFile('./NodeJS-1/data.json', (err, data) => {const listObj= JSON.parse(data);
