@@ -16,6 +16,8 @@
       background: linear-gradient(#fff 0%, #77A5F8 100%);
       }
       .jumbotron {
+        width: 30vh;
+        height: 50vh;
       background-color: #fff;
       opacity: 0.7;
       border-radius: 0.7rem;
@@ -27,6 +29,23 @@
       opacity: 0.9;
       transition: ease-in-out 0.3s;
     }
+
+    .imageCard {
+      width: 70%;
+      height: 70%;
+      object-fit: contain;
+    }
+
+    .imageName {
+      font-size: 1.5rem;
+    }
+
+    .btn {
+      background-color: #77A5F8;
+      color: #fff;
+      position: static;
+    }
+
       </style>
   </head>
   <body>
@@ -37,12 +56,12 @@
         <% ListImages.forEach(function(image){ %>
         <div class="col-6 mx-auto slide-in" id="slider">
           <div class="jumbotron text-center">
-            <h3><%= image.imageInput %></h3>
-            ID : <%= image.id %>
-            <div>
-              <img src="images_input/<%= image.imageInput %>" alt="">
-            </div>
-            <p><a class="btn btn-primary btn-lg mt-2" href="" role="button">View Profile</a></p>
+            <h3 class="imageName"> <%= image.imageInput %></h3>
+            <h3>ID : <%= image.id %></h3>
+           
+              <img class="imageCard" src="images_input/<%= image.imageInput %>" alt="">
+      
+            <p><a class="btn btn-primary btn-lg mt-2" href="" role="button">View Picture</a></p>
         </div>
         </div>
         <% }) %>
