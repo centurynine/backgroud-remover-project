@@ -122,7 +122,7 @@ app.get('/search/:variable', async (req, res) => {
     if(err) {res.status(400).send('Error List not found');
   } else {
     for (let i = 0; i < listObj.length; i++) { 
-      if (listObj[i].FirstName == variable) {
+      if (listObj[i].imageInput == variable) {
         res.render('search', {ListImages: listObj[i]});
       }
       if(i == listObj.length-1) {
@@ -135,48 +135,9 @@ app.get('/search/:variable', async (req, res) => {
 });
 });
 
- 
-
-
-app.get('/user/:id', async (req, res) => {
-  id = req.params.id;
-  await fs.readFile('./NodeJS-1/data.json', (err, data) => {const listObj= JSON.parse(data);
-    if(err) {res.status(400).send('Error List not found');
-  } else {
-    for (let i = 0; i < listObj.length; i++) { 
-      if (listObj[i].id == id) {
-        res.render('image', {ListImages: listObj[i]});
-      }
-    }
-  }
-});
-})
-
+  
 function response(res, status, message) {
   res.status(status).json({message: message});
 }
 
-
-function searchData (data, searchname) {
-  for (let i = 0; i < data.length; i++) {
-    data[i].FirstName = data[i].FirstName.toLowerCase();
-    data[i].LastName = data[i].LastName.toLowerCase();
-    data[i].Email = data[i].Email.toLowerCase();
-    data[i].Phone = data[i].Phone.toLowerCase();
-    searchname = searchname.toLowerCase();
-    if (data[i].FirstName == searchname || data[i].LastName == searchname || data[i].Email == searchname || data[i].Phone == searchname) {
-      console.log('พบข้อมูล');
-      return data[i];
-    }
-    else {
-      console.log('ไม่พบข้อมูล');
-    }
-    return false;
-}
-
-  return false;
-}
  
-function stop() {
-  process.exit()
-}
