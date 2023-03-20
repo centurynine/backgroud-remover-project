@@ -26,12 +26,8 @@ app.post('/uploadFile', async (req, res) => {
 
     const { image } = req.files;
 
-  
- 
-    // If no image submitted, exit
     if (!image) return res.sendStatus(400);
-  
-    // Move the uploaded image to our upload folder
+
     image.mv(__dirname + '/pages/images_input/' + image.name);
 
     let options = {
