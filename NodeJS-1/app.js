@@ -88,7 +88,19 @@ app.get('/home', (req, res)=> {
 });
 });
 
- 
+app.get('/image/:id', async (req, res) => {
+  id = req.params.id;
+  await fs.readFile('./NodeJS-1/data.json', (err, data) => {const listObj= JSON.parse(data);
+    if(err) {res.status(400).send('Error List not found');
+  } else {
+    for (let i = 0; i < listObj.length; i++) { 
+      if (listObj[i].id == id) {
+        res.render('image', {ListImages: listObj[i]});
+      }
+    }
+  }
+});
+})
 
 app.get('/search', (req, res)=> {
   fs.readFile('./NodeJS-1/data.json', (err, data) => {const listObj= JSON.parse(data);
