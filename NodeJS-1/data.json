@@ -1,13 +1,7 @@
 [
   {
-    "FirstName": "Saran",
-    "LastName": "Wanphunga",
-    "Email": "lowlifeix@gmail.com",
-    "Password": "5464646464646",
-    "Phone": "0983710776",
-    "Birthday": "2022-12-28",
-    "Gender": "male",
-    "Faculty": "คณะศิลปศาสตร์",
-    "id": 1
+    "id": 1,
+    "imageInput": "image-removebg-preview (7).png",
+    "imageOutput": "image-removebg-preview (7).png"
   }
 ]
