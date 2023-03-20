@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <!-- <div class="container-fluid">
+        <img class="mr-2" src="./assets/images/registration.png" width="50" height="50" class="d-inline-block align-top" alt=""> -->
+
+        <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link ml-2" aria-current="page" href="../home"> <img src="../assets/images/home.png" width="30" height="30" class="d-inline-block" alt=""> Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../register"> <img src="../assets/images/register.png" width="30" height="30" class="d-inline-block" alt=""> Registration</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../upload"> <img src="../assets/images/register.png" width="30" height="30" class="d-inline-block" alt=""> Upload</a>
+            </li>
+          </ul>
+          <div class="d-flex">
+            <input class="form-control me-2" vault=" " type="search" placeholder="Search" aria-label="Search" id="search">
+            <button class="btn btn-outline-success search-button" onclick="search()">Search</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+</head>
+<body>
+</body>
+<script>
+  function search() {
+    let search = " "
+    let root = window.location.origin;
+    search = document.getElementById("search").value;
+      const raw = JSON.stringify({
+        "search": search
+      });
+      const requestOptions = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: raw,
+        redirect: 'follow'
+      };
+      fetch(root + "/search", requestOptions)
+        .then(response => response.text())
+        .then(result => {
+          console.log(result);
+          window.location.href = root + "/search/" + search;
+        })
+        .catch(error => console.log('error', error));
+  }
+
+</script>
+</html>

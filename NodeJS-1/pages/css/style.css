@@ -1,0 +1,109 @@
+body {
+  scroll-behavior: smooth;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  color: #000000;
+  font-family: "kanit", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+}
+.text-center {
+  text-align: center;
+}
+.search-button {
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  margin-left: 1rem;
+  cursor: pointer;
+}
+.search-button:hover {
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #000000;
+}
+.box-register {
+  background-color: #ffffff;
+  border: 5px solid #615f5f;
+  border-radius: 20px;
+  padding: 1rem;
+  margin: 0 auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.box-register:hover {
+  background-color: #ffffff;
+  border: 5px solid #000000;
+  border-radius: 20px;
+  padding: 1rem;
+  margin: 0 auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.wrapper {
+  background-color: #f5f5f5;
+  border-radius: 200px;
+  padding: 20px;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.05);
+  margin-bottom: 5rem;
+  opacity: 0.6;
+  transition: 0.2s;
+}
+
+.wrapper:hover {
+  transition: 0.5s;
+  opacity: 0.9;
+}
+
+.wrapper-noblur {
+  background-color: #f5f5f5;
+  border-radius: 40px;
+  padding: 20px;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.05);
+  margin-bottom: 5rem;
+  opacity: 0.6;
+  transition: 0.2s;
+}
+
+.jumbotron {
+  border-radius: 20px;
+}
+
+#slider {
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+}
+
+.slide-in {
+    animation: slide-in 0.5s forwards;
+    -webkit-animation: slide-in 0.5s forwards;
+}
+
+.slide-out {
+    animation: slide-out 0.5s forwards;
+    -webkit-animation: slide-out 0.5s forwards;
+}
+    
+@keyframes slide-in {
+    100% { transform: translateX(0%); }
+}
+
+@-webkit-keyframes slide-in {
+    100% { -webkit-transform: translateX(0%); }
+}
+    
+@keyframes slide-out {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+}
+
+@-webkit-keyframes slide-out {
+    0% { -webkit-transform: translateX(0%); }
+    100% { -webkit-transform: translateX(-100%); }
+}

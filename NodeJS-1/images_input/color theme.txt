@@ -1,0 +1,10 @@
+
+white : Color.fromARGB(255, 240, 241, 245)
+
+blue : Color.fromARGB(255, 38, 46, 91)
+
+red : Color.fromARGB(255, 255, 28, 146)
+
+black : Color.fromARGB(255, 36, 36, 36)
+
+green : Color.fromARGB(255, 164, 255, 28)
