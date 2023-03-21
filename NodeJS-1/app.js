@@ -2,6 +2,7 @@
 const  express = require("express");
 const fileUpload = require('express-fileupload');
 const {PythonShell} =require('python-shell');
+const Jimp = require("jimp");
 var  fs = require("fs");
 var app = express();
 let port = '8080'
@@ -28,8 +29,21 @@ app.post('/uploadFile', async (req, res) => {
 
     if (!image) return res.sendStatus(400);
 
-    image.mv(__dirname + '/pages/images_input/' + image.name);
+    //check image type
+    if (image.mimetype == 'image/png') {
 
+      image.mv(__dirname + '/pages/images_input/' + image.name);
+    }
+    else if (image.mimetype == 'image/jpeg') {
+      const imageBuffer = await Jimp.read(image.data);
+      image.name = image.name.replace(/.jpg/g, '.png');
+
+        imageBuffer.write(__dirname + '/pages/images_input/' + image.name);
+ 
+       
+    }
+    //convert image to png
+ 
     let options = {
       mode: 'text',
       pythonOptions: ['-u'], 
@@ -41,24 +55,26 @@ app.post('/uploadFile', async (req, res) => {
    
   PythonShell.run('NodeJS-1/main.py', options, function (err, result){
         if (err) throw err;
-        // result is an array consisting of messages collected
-        //during execution of script.
         console.log('result: ', result.toString());
-        res.send(result.toString())
+       // res.send(result.toString())
+       response.writeHead(301, {
+        Location: `http://localhost:8080/success`
+      }).end();
 
   });
   var jsonData = await JSON.parse(fs.readFileSync('./NodeJS-1/data.json'));
   // add image name to json and add id to json
   let data = req.body;
-      console.log(jsonData);
-      jsonData.push(data);
-      jsonID = jsonData.length;
-      jsonData[jsonID-1].id = jsonID;
-      jsonData[jsonID-1].imageInput = image.name;
-      jsonData[jsonID-1].imageOutput = image.name;
-      fs.writeFileSync('./NodeJS-1/data.json', JSON.stringify(jsonData, null, "  "));
- 
-    res.sendStatus(200);
+  console.log(jsonData);
+  jsonData.push(data);
+  jsonID = jsonData.length;
+  jsonData[jsonID-1].id = jsonID;
+  jsonData[jsonID-1].imageInput = image.name;
+  jsonData[jsonID-1].imageOutput = image.name;
+  fs.writeFileSync('./NodeJS-1/data.json', JSON.stringify(jsonData, null, "  "));
+  response.writeHead(301, {
+    Location: `http://localhost:8080/success`
+  }).end();
 });
 
 
