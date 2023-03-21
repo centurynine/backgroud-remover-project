@@ -17,7 +17,7 @@ app.post("/uploadFile", async (req, res) => {
   if (!req.files || Object.keys(req.files).length === 0) {
     return res.status(400).send("No files were uploaded.");
   }
-
+ 
   const { image } = req.files;
 
   if (!image) return res.sendStatus(400);
