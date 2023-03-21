@@ -9,6 +9,7 @@
     <title>User</title>
     <link href="/css/bootstrap.css" rel="stylesheet" type="text/css">
     <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.4.js"></script>
     <%- include('../pages/nav'); %>
     <style>
       body {
@@ -70,7 +71,8 @@
       <div class="row align-items-center h-100" >
         <div class="col-2 mx-auto upload">
             <form action="/uploadFile" method="POST" enctype="multipart/form-data">
-                <input class="inputimage" type="file" name="image" />
+                <input class="inputimage" type="file" name="image"  id="imgInp"/>
+                <img id="blah" src="#" alt="your image" width="500px" height="500px"/>
                 <button class="submitbtn" type="submit">Upload</button>
             </form>
         </div>
@@ -78,5 +80,22 @@
   </div>
   
   </body>
+<script>
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
 
+        reader.onload = function (e) {
+            $('#blah').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#imgInp").change(function(){
+    readURL(this);
+});
+</script>
+ 
 </html>
