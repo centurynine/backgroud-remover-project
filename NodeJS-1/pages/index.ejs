@@ -45,6 +45,10 @@
       color: #fff;
       position: static;
     }
+    .card{
+      margin: 30px;
+
+    }
 
       </style>
   </head>
@@ -52,18 +56,16 @@
     <h1 class="text-center p-5">หน้าหลัก</h1>
     <h5 class="text-center p-5">ประวัติการอัพโหลด</h5>
     <div class="container h-100">
-      <div class="row align-items-center h-100">
+      <div class="row align-items-center h-100d">
         <% ListImages.forEach(function(image){ %>
-        <div class="col-6 mx-auto slide-in" id="slider">
-          <div class="jumbotron text-center">
-            <h3 class="imageName"> <%= image.imageInput %></h3>
-            <h3>ID : <%= image.id %></h3>
-            
-              <img class="imageCard" src="images_input/<%= image.imageInput %>" alt="">
-      
-            <p><a class="btn btn-primary btn-lg mt-2" href="/image/<%= image.id %>" role="button">View Picture</a></p>
-        </div>
-        </div>
+        <div class="card slide-in" id="slider" style="width: 18rem;">
+          <img class="card-img-top" src="images_input/<%= image.imageInput %>" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">ID : <%= image.id %></h5>
+            <p class="card-text"><%= image.imageInput %></p>
+            <a href="/image/<%= image.id %>" class="btn btn-primary">View Picture</a>
+          </div>
+        </div> 
         <% }) %>
       </div>
   </div>
