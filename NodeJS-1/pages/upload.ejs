@@ -56,6 +56,16 @@
       cursor: pointer;
       width: 100%;
     }
+    .submitbtn:hover {
+      background-color: #538efc;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      
+    }
     .inputimage{ 
       padding: 12px 20px;
       margin: 10px 0;
@@ -67,15 +77,15 @@
   </head>
   <body>
     <h3 class="text-center p-5"><a href="../"><img src="../assets/images/back-arrow.png" width="30" height="30" class="d-inline-block" alt=""></a> Upload Image</h3>
-    <div class="container h-100">
+ 
       <div class="row align-items-center h-100" >
         <div class="col-2 mx-auto upload">
             <form action="/uploadFile" method="POST" enctype="multipart/form-data">
-                <input class="inputimage" type="file" name="image"  id="imgInp"/>
-                <img id="blah" src="#" alt="your image" width="500px" height="500px"/>
+                <input class="inputimage " type="file" name="image"  id="imgInp"/>
+                <img class="col-lg-9 col-md-9 col-sm-9 col-xs-9  " id="blah" src="#" alt="your image"/>
                 <button class="submitbtn" type="submit">Upload</button>
             </form>
-        </div>
+ 
       </div>
   </div>
   
