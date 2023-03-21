@@ -6,21 +6,6 @@
   },
   {
     "id": 2,
-    "imageInput": "image.png",
-    "imageOutput": "image.png"
-  },
-  {
-    "id": 3,
-    "imageInput": "à¸ªà¸à¸£à¸µà¸à¸à¹à¸­à¸ 2023-03-13 234155.png",
-    "imageOutput": "à¸ªà¸à¸£à¸µà¸à¸à¹à¸­à¸ 2023-03-13 234155.png"
-  },
-  {
-    "id": 4,
-    "imageInput": "japan1.png",
-    "imageOutput": "japan1.png"
-  },
-  {
-    "id": 5,
     "imageInput": "japan1.png",
     "imageOutput": "japan1.png"
   }

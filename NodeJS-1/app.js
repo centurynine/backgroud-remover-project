@@ -57,9 +57,8 @@ app.post('/uploadFile', async (req, res) => {
         if (err) throw err;
         console.log('result: ', result.toString());
        // res.send(result.toString())
-       response.writeHead(301, {
-        Location: `http://localhost:8080/success`
-      }).end();
+       
+
 
   });
   var jsonData = await JSON.parse(fs.readFileSync('./NodeJS-1/data.json'));
@@ -72,9 +71,8 @@ app.post('/uploadFile', async (req, res) => {
   jsonData[jsonID-1].imageInput = image.name;
   jsonData[jsonID-1].imageOutput = image.name;
   fs.writeFileSync('./NodeJS-1/data.json', JSON.stringify(jsonData, null, "  "));
-  response.writeHead(301, {
-    Location: `http://localhost:8080/success`
-  }).end();
+  res.render('../pages/alertpages/alert_status.ejs', {status: 'success'})
+
 });
 
 
