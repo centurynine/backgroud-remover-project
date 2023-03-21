@@ -13,5 +13,10 @@
     "id": 3,
     "imageInput": "320001726_712967050137619_4863803277310359539_n.png",
     "imageOutput": "320001726_712967050137619_4863803277310359539_n.png"
+  },
+  {
+    "id": 4,
+    "imageInput": "maxresdefault.png",
+    "imageOutput": "maxresdefault.png"
   }
 ]
