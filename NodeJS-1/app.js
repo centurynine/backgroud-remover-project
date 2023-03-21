@@ -19,7 +19,7 @@ app.use(
 
  
 app.post('/uploadFile', async (req, res) => {
-  
+  var error = false
  
     if (!req.files || Object.keys(req.files).length === 0) {
       return res.status(400).send('No files were uploaded.');
@@ -53,14 +53,19 @@ app.post('/uploadFile', async (req, res) => {
 
   };
    
-  PythonShell.run('NodeJS-1/main.py', options, function (err, result){
-        if (err) throw err;
+  PythonShell.run('NodeJS-1/main.py', options, async function (err, result){
+        if (err){ 
+    
+        res.render('../pages/alertpages/alert_status.ejs', {status: 'fail'})
         console.log('result: ', result.toString());
-       // res.send(result.toString())
-       
-
-
+        error = true
+        return
+        }
+ 
+ 
   });
+
+  if (error == false) {
   var jsonData = await JSON.parse(fs.readFileSync('./NodeJS-1/data.json'));
   // add image name to json and add id to json
   let data = req.body;
@@ -72,7 +77,8 @@ app.post('/uploadFile', async (req, res) => {
   jsonData[jsonID-1].imageOutput = image.name;
   fs.writeFileSync('./NodeJS-1/data.json', JSON.stringify(jsonData, null, "  "));
   res.render('../pages/alertpages/alert_status.ejs', {status: 'success'})
-
+  }
+ 
 });
 
 

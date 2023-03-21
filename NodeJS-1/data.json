@@ -6,7 +6,12 @@
   },
   {
     "id": 2,
-    "imageInput": "japan1.png",
-    "imageOutput": "japan1.png"
+    "imageInput": "300.png",
+    "imageOutput": "300.png"
+  },
+  {
+    "id": 3,
+    "imageInput": "11.webp",
+    "imageOutput": "11.webp"
   }
 ]
