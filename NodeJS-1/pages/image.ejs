@@ -17,20 +17,24 @@
         background: linear-gradient(#fff 0%, #77a5f8 100%);
       }
       .jumbotron {
-        width: 200vh;
+        width: 100vh;
+        align-items: center;
+        justify-content: center;
         background-color: #fff;
         opacity: 0.7;
         border-radius: 0.7rem;
         margin-top: 1rem;
         transition: ease-out 0.3s;
         border: 1px solid #77a5f8;
- 
       }
       .jumbotron:hover {
         opacity: 0.9;
         transition: ease-in-out 0.3s;
       }
- 
+      img {
+        max-width: 100%;
+        height: auto;
+      }
     </style>
   </head>
   <body>
@@ -45,27 +49,21 @@
       /></a>
       Image ID:<%= ListImages.id %>
     </h3>
-    <div class="container h-100">
-      <div class="row align-items-center h-100">
-        <div class="col-6 mx-auto">
-          <div class="jumbotron text-center slide-in" id="slider">
-            <h3><%= ListImages.imageInput %></h3>
-            <h3><%= ListImages.id %></h3>
-            <div class="d-flex justify-content-around pad-sm"> 
-            <div class="beforeimage">
-              <img src="../images_input/<%= ListImages.imageInput %>" alt="" />
-              <h1>Image before remover background</h1>
-            </div>
-            <div class="afterimage">
-              <img
-                src="../images_output/<%= ListImages.imageOutput %>"
-                alt=""
-              />
-              <h1 >Image after before remover background</h1></div>
-            </div>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 offset-3 float-md-center">
+      <div class="jumbotron text-center slide-in" id="slider">
+        <h3><%= ListImages.imageInput %></h3>
+        <h3><%= ListImages.id %></h3>
+        <div class="d-flex justify-content-around pad-sm">
+          <div class="beforeimage">
+            <img class="rounded mx-auto d-block" src="../images_input/<%= ListImages.imageInput %>" alt="" />
+            <h4>Image before remover background</h4>
+          </div>
+          <div class="afterimage">
+            <img class="text-center" src="../images_output/<%= ListImages.imageOutput %>" alt="" />
+            <h4>Image after before remover background</h4>
           </div>
         </div>
-      </div>
+    </div>
     </div>
   </body>
 </html>
