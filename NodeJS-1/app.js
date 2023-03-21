@@ -15,9 +15,9 @@ app.post("/uploadFile", async (req, res) => {
   var error = false;
 
   if (!req.files || Object.keys(req.files).length === 0) {
-    return res.status(400).send("No files were uploaded.");
+    return res.render("../pages/alertpages/alert_status.ejs", { status: "nofile" });
   }
- 
+
   const { image } = req.files;
 
   if (!image) return res.sendStatus(400);
@@ -34,7 +34,6 @@ app.post("/uploadFile", async (req, res) => {
     mode: "text",
     pythonOptions: ["-u"],
     scriptPath: "",
-
     args: [
       __dirname + "/pages/images_input/" + image.name,
       __dirname + "/pages/images_output/" + image.name,
@@ -130,7 +129,6 @@ app.get("/search/:variable", async (req, res) => {
       res.status(400).send("Error List not found");
     } else {
       for (let i = 0; i < listObj.length; i++) {
-
         if (listObj[i].imageInput == variable) {
           res.render("search", { ListImages: listObj[i] });
         } else if (i == listObj.length - 1) {

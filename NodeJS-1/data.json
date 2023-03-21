@@ -3,25 +3,5 @@
     "id": 1,
     "imageInput": "image-removebg-preview (7).png",
     "imageOutput": "image-removebg-preview (7).png"
-  },
-  {
-    "id": 2,
-    "imageInput": "300.png",
-    "imageOutput": "300.png"
-  },
-  {
-    "id": 3,
-    "imageInput": "cloudy.png",
-    "imageOutput": "cloudy.png"
-  },
-  {
-    "id": 4,
-    "imageInput": "maxresdefault.png",
-    "imageOutput": "maxresdefault.png"
-  },
-  {
-    "id": 5,
-    "imageInput": "image-removebg-preview (8).png",
-    "imageOutput": "image-removebg-preview (8).png"
   }
 ]

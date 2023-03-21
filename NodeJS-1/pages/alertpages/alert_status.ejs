@@ -59,6 +59,8 @@
     document.getElementById("status").innerHTML = "เพิ่มข้อมูลสำเร็จ";
   } else if ("<%= status %>" == "fail"){
     document.getElementById("status").innerHTML = "เพิ่มข้อมูลไม่สำเร็จ";
+  } else if ("<%= status %>" == "nofile"){
+    document.getElementById("status").innerHTML = "ไม่พบไฟล์รูปภาพ";
   } else {
   document.getElementById("status").innerHTML = "ไม่พบข้อมูล";
 }
