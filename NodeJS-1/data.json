@@ -18,5 +18,10 @@
     "id": 4,
     "imageInput": "maxresdefault.png",
     "imageOutput": "maxresdefault.png"
+  },
+  {
+    "id": 5,
+    "imageInput": "image-removebg-preview (8).png",
+    "imageOutput": "image-removebg-preview (8).png"
   }
 ]

@@ -29,16 +29,49 @@
       opacity: 0.9;
       transition: ease-in-out 0.3s;
     }
+    .container {
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      border-radius: 50px;
+      background: linear-gradient(#fff 0%, #77A5F8 100%);
+    }
+    .upload {
+      text-align: center;
+      justify-content: center;
+      height: 300px;
+      opacity: 0.7;
+      border-radius: 0.7rem;
+      margin-top: 1rem;
+      transition: ease-out 0.3s;
+ 
+    }
+    .submitbtn {
+      background-color: #77A5F8;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+    .inputimage{ 
+      padding: 12px 20px;
+      margin: 10px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
       </style>
   </head>
   <body>
     <h3 class="text-center p-5"><a href="../"><img src="../assets/images/back-arrow.png" width="30" height="30" class="d-inline-block" alt=""></a> Upload Image</h3>
     <div class="container h-100">
       <div class="row align-items-center h-100" >
-        <div class="col-6 mx-auto">
+        <div class="col-2 mx-auto upload">
             <form action="/uploadFile" method="POST" enctype="multipart/form-data">
-                <input type="file" name="image" />
-                <button type="submit">Upload</button>
+                <input class="inputimage" type="file" name="image" />
+                <button class="submitbtn" type="submit">Upload</button>
             </form>
         </div>
       </div>
