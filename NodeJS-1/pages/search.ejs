@@ -4,46 +4,67 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>User</title>
-    <link href="/css/bootstrap.css" rel="stylesheet" type="text/css">
-    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <title>Picture View</title>
+    <link href="/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
     <%- include('../pages/nav'); %>
     <style>
       body {
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      background: linear-gradient(#fff 0%, #77A5F8 100%);
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background: linear-gradient(#fff 0%, #77a5f8 100%);
       }
       .jumbotron {
-      background-color: #fff;
-      opacity: 0.7;
-      border-radius: 0.7rem;
-      margin-top: 1rem;
-      transition: ease-out 0.3s;
-      border: 1px solid #77A5F8;
-    }
+        width: 200vh;
+        background-color: #fff;
+        opacity: 0.7;
+        border-radius: 0.7rem;
+        margin-top: 1rem;
+        transition: ease-out 0.3s;
+        border: 1px solid #77a5f8;
+ 
+      }
       .jumbotron:hover {
-      opacity: 0.9;
-      transition: ease-in-out 0.3s;
-    }
-      </style>
+        opacity: 0.9;
+        transition: ease-in-out 0.3s;
+      }
+ 
+    </style>
   </head>
   <body>
-    <h3 class="text-center p-5"><a href="../"><img src="../assets/images/back-arrow.png" width="30" height="30" class="d-inline-block" alt=""></a> Image ID:<%= ListImages.id %></h3>
+    <h3 class="text-center p-5">
+      <a href="../"
+        ><img
+          src="../assets/images/back-arrow.png"
+          width="30"
+          height="30"
+          class="d-inline-block"
+          alt=""
+      /></a>
+      Image ID:<%= ListImages.id %>
+    </h3>
     <div class="container h-100">
-      <div class="row align-items-center h-100" >
+      <div class="row align-items-center h-100">
         <div class="col-6 mx-auto">
           <div class="jumbotron text-center slide-in" id="slider">
-            <h3><%= ListImages.imageInput %></h3><br>
-            <%= ListImages.id %><br>
-
-     
-        </div>
+            <h3><%= ListImages.imageInput %></h3>
+            <h3><%= ListImages.id %></h3>
+            <div class="d-flex justify-content-around pad-sm"> 
+            <div class="beforeimage">
+              <img src="../images_input/<%= ListImages.imageInput %>" alt="" />
+              <h1>Image before remover background</h1>
+            </div>
+            <div class="afterimage">
+              <img
+                src="../images_output/<%= ListImages.imageOutput %>"
+                alt=""
+              />
+              <h1 >Image after before remover background</h1></div>
+            </div>
+          </div>
         </div>
       </div>
-  </div>
-  
+    </div>
   </body>
-
 </html>

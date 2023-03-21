@@ -130,6 +130,7 @@ app.get("/search/:variable", async (req, res) => {
       res.status(400).send("Error List not found");
     } else {
       for (let i = 0; i < listObj.length; i++) {
+
         if (listObj[i].imageInput == variable) {
           res.render("search", { ListImages: listObj[i] });
         } else if (i == listObj.length - 1) {
