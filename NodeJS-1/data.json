@@ -11,7 +11,12 @@
   },
   {
     "id": 3,
-    "imageInput": "11.webp",
-    "imageOutput": "11.webp"
+    "imageInput": "cloudy.png",
+    "imageOutput": "cloudy.png"
+  },
+  {
+    "id": 4,
+    "imageInput": "maxresdefault.png",
+    "imageOutput": "maxresdefault.png"
   }
 ]

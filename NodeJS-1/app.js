@@ -39,9 +39,9 @@ app.post('/uploadFile', async (req, res) => {
       image.name = image.name.replace(/.jpg/g, '.png');
 
         imageBuffer.write(__dirname + '/pages/images_input/' + image.name);
- 
-       
-    }
+    } 
+  
+
     //convert image to png
  
     let options = {
@@ -103,7 +103,7 @@ app.get('/home', (req, res)=> {
   }
 });
 });
-
+   
 app.get('/image/:id', async (req, res) => {
   id = req.params.id;
   await fs.readFile('./NodeJS-1/data.json', (err, data) => {const listObj= JSON.parse(data);
